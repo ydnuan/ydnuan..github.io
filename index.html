@@ -253,6 +253,135 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://ydnuan.github.io/2017/07/23/隐藏域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ydnuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杨夏天-Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/23/隐藏域/" itemprop="url">隐藏域</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T10:44:02+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>重点是ajax的data处。改为了    data : $(‘#noForm’).serialize()<br>这次ajax采用了post的传值方式，$(‘#noForm’).serialize()调教了整个表单。本页的代码是一个分页的片段，自己写了一下分页，把第几页，每页多少条数据等数据传回后台，但是之前是get方法，由于有模糊查询，之类的，容易出现乱码错误。所以改成了post方式。自己第一次接触隐藏域，也是第一次认识到“$(‘#noForm’).serialize()”，serialize（）将整个表单与提交，这个是我最注重的。前端我是个渣手，虽然后端也很渣。做个随笔记下来。</p>
+<p>form id=”noForm” style=”display: none;”<br><br>            input type=”text” name=”description” id=”Description”/,<br><br>        input type=”text” name=”productName” id=”Pname”/<br><br>            input type=”text” name=”page” id=”Page”/<br><br>        input type=”text” name=”pageSize” id=”PageSize”/<br><br>            input type=”text” name=”id” id=”enterpriseToolsId”/<br><br>            input type=”text” name=”selectTemp” id=”SelectTemp”/<br></p>
+<pre><code>ajaxSelectAll(){
+       $(&quot;#tbody&quot;).html(&quot;&quot;);
+       $.ajax({
+                   type : &quot;post&quot;,
+                    url : &quot;${cxp}/zd_manager/system/setReportTemplate.do?method=toSetReportTemplate&quot;, 
+                   dataType : &quot;json&quot;,
+                   data : $(&apos;#noForm&apos;).serialize(),
+                   error : function() {
+                       alert(&quot;error出错了数据查到的可能是空：暂无数据&quot;);
+                   },
+                   success : function(data) {
+                       dataSelect(data);
+                       var flag = &quot;暂无数据&quot;;判断工具是否有报告模板
+                       var dataFlag = false;判断企业是否有报告模板并且判断是否打勾
+                        getEnterpriseId = data[data.length - 1].getEnterpriseId;
+                        toolsId = data[data.length - 1].toolsId;
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://ydnuan.github.io/2017/07/19/恍惚了一夏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -982,7 +1111,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
