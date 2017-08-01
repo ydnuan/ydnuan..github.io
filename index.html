@@ -441,16 +441,8 @@
 <blockquote>
 <p><c:if test="”${user.visitCount==1}”"><br>       This is your first visit .<br></c:if></p>
 </blockquote>
-<p>如果结果为false则不输出中间的内容<br>刚才在页面判断一个对象是否为空，怎么写也不对，就用了下面的方法来判断<br>对象内容是否为空，然后突然想到，以前的写法好像是：</p>
-<pre>(<c:if test="$(!permissionMap.isEmpty)</c:if>" )="" <c:if="">    
-<c:foreach items="${permissionMap}" var="item">  
-<tr>  
-  <td>${item.value.id}</td>  
-   <td>${item.value.urlOnClass}</td>  
-    <td>${item.value.urlOnMethod}</td>  
-</tr>  
-</c:foreach>  
- </c:if></pre>    
+<p>如果结果为false则不输出中间的内容<br>刚才在页面判断一个对象是否为空，怎么写也不对，就用了下面的方法来判断<br>对象内容是否为空，然后突然想到，以前的写法好像是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(&lt;c:if test=&quot;$(!permissionMap.isEmpty)&lt;/c:if&gt;&quot;)</div><div class="line"></div><div class="line">&lt;c:if test=&quot;$&#123;!empty permissionMap&#125;&quot;&gt;    </div><div class="line">&lt;c:forEach items=&quot;$&#123;permissionMap&#125;&quot; var=&quot;item&quot;&gt;  </div><div class="line">&lt;tr&gt;  </div><div class="line">  &lt;td&gt;$&#123;item.value.id&#125;&lt;/td&gt;  </div><div class="line">   &lt;td&gt;$&#123;item.value.urlOnClass&#125;&lt;/td&gt;  </div><div class="line">    &lt;td&gt;$&#123;item.value.urlOnMethod&#125;&lt;/td&gt;  </div><div class="line">&lt;/tr&gt;  </div><div class="line">&lt;/c:forEach&gt;  </div><div class="line"> &lt;/c:if&gt;</div></pre></td></tr></table></figure></p>
+
           
         
       
